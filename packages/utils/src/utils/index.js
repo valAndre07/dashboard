@@ -145,6 +145,8 @@ export function getStepDefinition({
     stepDefinitions = taskRun.spec.taskSpec[field];
   } else if (task?.spec?.[field]) {
     stepDefinitions = task.spec[field];
+  } else if (taskRun.status?.[field]) {
+    stepDefinitions = taskRun.status[field];
   }
 
   const definition = stepDefinitions?.find(
